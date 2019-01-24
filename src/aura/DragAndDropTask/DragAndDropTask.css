@@ -1,0 +1,9 @@
+.THIS .matchStatus{
+    border: 3px dashed #3b888b;
+    background: rgba(75, 202, 129, 0.08);
+}
+
+.THIS .disabled{
+    background-color: rgb(236, 235, 234);
+    border-color: #a8b7c7;
+}

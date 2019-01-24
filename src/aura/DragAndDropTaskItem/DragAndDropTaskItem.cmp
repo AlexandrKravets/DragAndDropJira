@@ -1,0 +1,59 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:appHostable"
+                controller="DragAndDropController">
+
+    <aura:attribute name="taskStatus" type="String"/>
+    <aura:attribute name="customTasks" type="Map"/>
+    <aura:attribute name="customTask" type="List"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="dragStarted" type="DragAndDropEvent"/>
+
+    <table class="slds-table">
+        <thead>
+        <tr class="slds-line-height_reset">
+            <th class="slds-text-title_caps" scope="col">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-text-title_caps  slds-col">
+                        <span> {!v.taskStatus}</span>
+                    </div>
+                </div>
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <aura:iteration items="{!v.customTask}" var="task">
+            <tr class="slds-text-title_caps">
+                <td scope="col">
+                    <div id='{!task.Id}' data-drag-id='{!task}' class="" draggable="true"
+                         ondragstart="{!c.onDragStart}">
+                        <article class="slds-card">
+                            <div class="slds-card__header">
+                                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                    <div class="slds-media__figure">
+                                                <span class="slds-icon_container slds-icon-standard-task" title="task">
+                                                        {!task.Status__c}
+                                                </span>
+                                    </div>
+
+                                </header>
+                            </div>
+                            <div class="slds-card__body slds-card__body_inner">
+
+                                <div class="slds-text ">
+                                    <p id="{!task.Id}" class="slds-truncate_container--33"
+                                       onclick="{!c.onView}">{!task.Name}</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </td>
+            </tr>
+        </aura:iteration>
+        </tbody>
+    </table>
+
+</aura:component>
+
+

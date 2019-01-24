@@ -1,0 +1,6 @@
+<aura:event type="COMPONENT" description="DragAndDropEvent">
+    <aura:attribute name="currentStatus"
+                    type="String"/>
+    <aura:attribute name="taskId"
+                    type="Id"/>
+</aura:event>
