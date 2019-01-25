@@ -1,3 +1,3 @@
 <aura:application >
-	<c:DragAndDropTask/>
+	<c:DragAndDropTask/> 
 </aura:application>
