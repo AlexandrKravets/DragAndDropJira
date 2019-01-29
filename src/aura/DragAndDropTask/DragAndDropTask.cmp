@@ -59,12 +59,12 @@
 
                 <footer class="slds-modal__footer">
                     <lightning:button variant="neutral"
-                                      label="Cancel"
-                                      title="Cancel"
+                                      label="{!$Label.c.Global_Cancel}"
+                                      title="{!$Label.c.Global_Cancel}"
                                       onclick="{!c.closeModel}"/>
                     <lightning:button variant="brand"
-                                      label="Save"
-                                      title="Save"
+                                      label="{!$Label.c.Global_Save}"
+                                      title="{!$Label.c.Global_Save}"
                                       onclick="{!c.changeStatus}"/>
                 </footer>
             </div>

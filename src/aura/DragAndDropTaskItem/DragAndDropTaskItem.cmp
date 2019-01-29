@@ -26,7 +26,7 @@
             <tr class="slds-text-title_caps">
                 <td scope="col">
                     <div id='{!task.Id}' data-drag-id='{!task}' class="" draggable="true"
-                         ondragstart="{!c.onDragStart}">
+                         ondragstart="{!c.onDragStart}" title="{!task.Name}" onclick="{!c.onView}">
                         <article class="slds-card">
                             <div class="slds-card__header">
                                 <header class="slds-media slds-media_center">
@@ -42,7 +42,7 @@
 
                                 <div class="slds-text ">
                                     <p id="{!task.Id}" class="slds-truncate"
-                                       onclick="{!c.onView}">{!task.Name}</p>
+                                       >{!task.Name}</p>
                                 </div>
                             </div>
                         </article>

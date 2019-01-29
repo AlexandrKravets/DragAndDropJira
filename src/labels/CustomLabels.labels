@@ -7,4 +7,18 @@
         <shortDescription>Change Status</shortDescription>
         <value>Change Status</value>
     </labels>
+    <labels>
+        <fullName>Global_Cancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Global_Save</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
 </CustomLabels>
