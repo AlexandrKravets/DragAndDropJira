@@ -5,7 +5,7 @@
         var map = component.get("v.customTasks");
 
         if (map[key] != null) {
-            component.set("v.customTask", map[key]);
+            component.set("v.taskStatusList", map[key]);
         }
     },
 
@@ -26,6 +26,5 @@
             "recordId": event.target.id
         });
         window.open('/' + navigateEvent.getParam('recordId'));
-        // navigateEvent.fire();
     },
 })

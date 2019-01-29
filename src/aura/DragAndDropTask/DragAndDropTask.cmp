@@ -1,7 +1,7 @@
 <aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:appHostable"
                 controller="DragAndDropController">
 
-    <aura:attribute name="statusAvailableValues" type="List"/>
+    <aura:attribute name="availableStatusValues" type="List"/>
     <aura:attribute name="customTasks" type="Map"/>
     <aura:attribute name="matchStatuses" type="Map"/>
     <aura:attribute name="isLoaded" type="Boolean" default="false"/>
@@ -15,7 +15,7 @@
 
     <div class="slds-grid slds-card " id='taskGrid'>
         <aura:if isTrue="{!v.isLoaded}">
-            <aura:iteration items="{!v.statusAvailableValues}" var="statusValue">
+            <aura:iteration items="{!v.availableStatusValues}" var="statusValue">
                 <div Id='{!statusValue}' class="slds-text-title_caps  slds-col draggable" ondrop="{!c.drop}"
                      ondragover="{!c.allowDrop}">
                     <c:DragAndDropTaskItem taskStatus="{!statusValue}" customTasks="{!v.customTasks}"/>

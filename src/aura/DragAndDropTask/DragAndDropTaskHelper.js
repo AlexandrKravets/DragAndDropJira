@@ -17,7 +17,7 @@
         action.setCallback(this, function (response) {
             if (component.isValid() && response.getState() === "SUCCESS") {
                 var availableStatus = response.getReturnValue()
-                component.set('v.statusAvailableValues', availableStatus);
+                component.set('v.availableStatusValues', availableStatus);
 
             }
         });
@@ -100,8 +100,8 @@
     },
 
     resetHighlightsClass: function (component) {
-        var statusAvailableValues = component.get('v.statusAvailableValues');
-        statusAvailableValues.forEach(function (status) {
+        var availableStatusValues = component.get('v.availableStatusValues');
+        availableStatusValues.forEach(function (status) {
             $A.util.removeClass(document.getElementById(status), 'matchStatus');
         });
     },

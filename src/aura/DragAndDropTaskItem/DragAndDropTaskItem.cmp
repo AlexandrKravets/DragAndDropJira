@@ -3,7 +3,7 @@
 
     <aura:attribute name="taskStatus" type="String"/>
     <aura:attribute name="customTasks" type="Map"/>
-    <aura:attribute name="customTask" type="List"/>
+    <aura:attribute name="taskStatusList" type="List"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:registerEvent name="dragStarted" type="DragAndDropEvent"/>
@@ -22,7 +22,7 @@
         </thead>
 
         <tbody>
-        <aura:iteration items="{!v.customTask}" var="task">
+        <aura:iteration items="{!v.taskStatusList}" var="task">
             <tr class="slds-text-title_caps">
                 <td scope="col">
                     <div id='{!task.Id}' data-drag-id='{!task}' class="" draggable="true"
