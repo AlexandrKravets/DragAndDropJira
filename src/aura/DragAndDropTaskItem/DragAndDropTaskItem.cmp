@@ -11,19 +11,15 @@
     <table class="slds-table slds-table_fixed-layout">
         <thead>
         <tr class="slds-line-height_reset">
-            <th class="slds-text-title_caps" scope="col">
-                <div class="slds-grid">
-                    <div class="slds-text-title_caps  slds-col">
-                        <span> {!v.taskStatus}</span>
-                    </div>
-                </div>
+            <th class="slds-text-title_caps slds-text-align_center slds-box--border" scope="col">
+                    <span> {!v.taskStatus}</span>
             </th>
         </tr>
         </thead>
 
         <tbody>
         <aura:iteration items="{!v.taskStatusList}" var="task">
-            <tr class="slds-text-title_caps">
+            <tr class="slds-text">
                 <td scope="col">
                     <div id='{!task.Id}' data-drag-id='{!task}' class="" draggable="true"
                          ondragstart="{!c.onDragStart}" title="{!task.Name}" onclick="{!c.onView}">
@@ -35,19 +31,13 @@
                                                         {!task.Status__c}
                                                 </span>
                                     </div>
-
                                 </header>
                             </div>
-                            <div class="slds-card__body slds-card__body_inner">
-
-                                <div class="slds-text ">
-                                    <p id="{!task.Id}" class="slds-truncate"
-                                       >{!task.Name}</p>
-                                </div>
+                            <div class="slds-card__body">
+                                <p id="{!task.Id}" class="slds-text-align_center slds-truncate">{!task.Name}</p>
                             </div>
                         </article>
                     </div>
-
                 </td>
             </tr>
         </aura:iteration>

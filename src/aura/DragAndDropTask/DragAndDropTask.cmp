@@ -16,7 +16,7 @@
     <div class="slds-grid slds-card " id='taskGrid'>
         <aura:if isTrue="{!v.isLoaded}">
             <aura:iteration items="{!v.availableStatusValues}" var="statusValue">
-                <div Id='{!statusValue}' class="slds-text-title_caps  slds-col draggable" ondrop="{!c.drop}"
+                <div Id='{!statusValue}' class="slds-text slds-box--border slds-col draggable " ondrop="{!c.drop}"
                      ondragover="{!c.allowDrop}">
                     <c:DragAndDropTaskItem taskStatus="{!statusValue}" customTasks="{!v.customTasks}"/>
                 </div>
