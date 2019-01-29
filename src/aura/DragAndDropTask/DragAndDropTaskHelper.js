@@ -11,9 +11,9 @@
         component.set("v.matchStatuses", map);
     },
 
-    getCustomTaskStatus: function (component, event) {
+    getCustomTasksStatuses: function (component, event) {
 
-        var action = component.get("c.getCustomTaskStatus");
+        var action = component.get("c.getCustomTasksStatuses");
         action.setCallback(this, function (response) {
             if (component.isValid() && response.getState() === "SUCCESS") {
                 var availableStatus = response.getReturnValue()
@@ -25,9 +25,9 @@
         $A.enqueueAction(action);
     },
 
-    getCustomTask: function (component, event) {
+    getCustomTasks: function (component, event) {
 
-        var action = component.get("c.getCustomTask");
+        var action = component.get("c.getCustomTasks");
 
         action.setCallback(this, function (response) {
             if (component.isValid() && response.getState() === "SUCCESS") {

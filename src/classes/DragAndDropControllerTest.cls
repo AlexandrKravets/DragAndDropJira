@@ -15,18 +15,18 @@ public class DragAndDropControllerTest {
     }
 
     @isTest
-    static void getCustomTaskStatusTest() {
+    static void getCustomTasksStatusesTest() {
         Test.startTest();
-            List<String> statusList = DragAndDropController.getCustomTaskStatus();
+            List<String> statusList = DragAndDropController.getCustomTasksStatuses();
         Test.stopTest();
         System.assert(!statusList.isEmpty(), 'Expected  component list should not be empty');
     }
 
 
     @isTest
-    static void getCustomTaskTest() {
+    static void getCustomTasksTest() {
         Test.startTest();
-            Map<String, List<CustomTask__c>> expectedPicklists = DragAndDropController.getCustomTask();
+            Map<String, List<CustomTask__c>> expectedPicklists = DragAndDropController.getCustomTasks();
         Test.stopTest();
 
         for (String key : expectedPicklists.keySet()) {

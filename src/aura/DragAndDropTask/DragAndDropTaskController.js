@@ -1,8 +1,8 @@
 ({
     doInit: function (component, event, helper) {
         helper.addStatusValueToKey(component);
-        helper.getCustomTaskStatus(component, event);
-        helper.getCustomTask(component, event);
+        helper.getCustomTasksStatuses(component, event);
+        helper.getCustomTasks(component, event);
     },
 
     allowDrop: function (component, event, helper) {

@@ -4,7 +4,7 @@
 
 public class DragAndDropController {
     @AuraEnabled
-    public static List<String> getCustomTaskStatus() {
+    public static List<String> getCustomTasksStatuses() {
 
         List<Schema.PickListEntry> typeObjects = CustomTask__c.Status__c.getDescribe().getPicklistValues();
         List<String> typeValues = new List<String>();
@@ -16,7 +16,7 @@ public class DragAndDropController {
     }
 
     @AuraEnabled
-    public static Map<String, List<CustomTask__c>> getCustomTask() {
+    public static Map<String, List<CustomTask__c>> getCustomTasks() {
         List<CustomTask__c> taskList = [SELECT Id, Name, Status__c, LastModifiedDate FROM CustomTask__c LIMIT 50];
 
         Map<String, List<CustomTask__c>> taskMap = new Map<String, List<CustomTask__c>>();
