@@ -38,11 +38,11 @@ public class DragAndDropControllerTest {
 
     @isTest
     static void updateTaskStatusTest() {
-        CustomTask__c actualRecord = [SELECT Id, Name, Status__c FROM CustomTask__c ];
+        CustomTask__c actualRecord = [SELECT Id, Name, Status__c FROM CustomTask__c LIMIT 50];
         Test.startTest();
             DragAndDropController.updateTaskStatus(actualRecord.Id, 'InProgress');
         Test.stopTest();
-        CustomTask__c expectedRecord = [SELECT Status__c FROM CustomTask__c WHERE Id = :actualRecord.Id];
+        CustomTask__c expectedRecord = [SELECT Status__c FROM CustomTask__c WHERE Id = :actualRecord.Id LIMIT 1];
         System.assertEquals('InProgress', expectedRecord.Status__c, 'Expected  component list should not be empty');
 
     }

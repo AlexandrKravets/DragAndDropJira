@@ -63,7 +63,7 @@
 
         if (matchStatuses[component.get("v.currentStatus")].includes(event.target.id)) {
             console.log('match');
-            component.set("v.isOpen", true);
+            component.set("v.isOpenTaskDetail", true);
         }
         else {
             this.resetHighlightsClass(component);
@@ -74,7 +74,7 @@
 
     closeModel: function (component, event, helper) {
         this.resetHighlightsClass(component);
-        component.set("v.isOpen", false);
+        component.set("v.isOpenTaskDetail", false);
     },
 
     changeStatus: function (component, event, helper) {
@@ -92,7 +92,7 @@
         });
 
         $A.enqueueAction(action);
-        component.set("v.isOpen", false);
+        component.set("v.isOpenTaskDetail", false);
     },
 
     doRefreshView: function (component, helper) {
