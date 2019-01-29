@@ -17,7 +17,7 @@ public class DragAndDropController {
 
     @AuraEnabled
     public static Map<String, List<CustomTask__c>> getCustomTask() {
-        List<CustomTask__c> taskList = [SELECT Id, Name, Status__c, LastModifiedDate FROM CustomTask__c];
+        List<CustomTask__c> taskList = [SELECT Id, Name, Status__c, LastModifiedDate FROM CustomTask__c LIMIT 50];
 
         Map<String, List<CustomTask__c>> taskMap = new Map<String, List<CustomTask__c>>();
         for (CustomTask__c task : taskList) {
@@ -33,8 +33,10 @@ public class DragAndDropController {
 
     @AuraEnabled
     public static void updateTaskStatus(Id recordId, String status) {
-        CustomTask__c record = [SELECT Status__c FROM CustomTask__c WHERE Id = :recordId];
-        record.Status__c = status;
-        update record;
+        CustomTask__c record = [SELECT Status__c FROM CustomTask__c WHERE Id = :recordId LIMIT 1];
+        if(record !=null) {
+            record.Status__c = status;
+            update record;
+        }
     }
 }

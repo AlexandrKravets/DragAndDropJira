@@ -8,11 +8,11 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:registerEvent name="dragStarted" type="DragAndDropEvent"/>
 
-    <table class="slds-table">
+    <table class="slds-table slds-table_fixed-layout">
         <thead>
         <tr class="slds-line-height_reset">
             <th class="slds-text-title_caps" scope="col">
-                <div class="slds-grid slds-gutters">
+                <div class="slds-grid">
                     <div class="slds-text-title_caps  slds-col">
                         <span> {!v.taskStatus}</span>
                     </div>
@@ -29,7 +29,7 @@
                          ondragstart="{!c.onDragStart}">
                         <article class="slds-card">
                             <div class="slds-card__header">
-                                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <header class="slds-media slds-media_center">
                                     <div class="slds-media__figure">
                                                 <span class="slds-icon_container slds-icon-standard-task" title="task">
                                                         {!task.Status__c}
@@ -41,7 +41,7 @@
                             <div class="slds-card__body slds-card__body_inner">
 
                                 <div class="slds-text ">
-                                    <p id="{!task.Id}" class="slds-truncate_container--33"
+                                    <p id="{!task.Id}" class="slds-truncate"
                                        onclick="{!c.onView}">{!task.Name}</p>
                                 </div>
                             </div>
