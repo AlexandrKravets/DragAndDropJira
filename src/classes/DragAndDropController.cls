@@ -17,7 +17,7 @@ public class DragAndDropController {
 
     @AuraEnabled
     public static Map<String, List<CustomTask__c>> getCustomTasks() {
-        List<CustomTask__c> taskList = [SELECT Id, Name, Status__c, LastModifiedDate FROM CustomTask__c LIMIT 50];
+        List<CustomTask__c> taskList = [SELECT Id, Name, Status__c, Comment__c, LastModifiedDate FROM CustomTask__c LIMIT 50];
 
         Map<String, List<CustomTask__c>> taskMap = new Map<String, List<CustomTask__c>>();
         for (CustomTask__c task : taskList) {
