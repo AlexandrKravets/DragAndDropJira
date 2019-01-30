@@ -25,13 +25,13 @@
                          ondragstart="{!c.onDragStart}" title="{!task.Name}" onclick="{!c.onView}">
                         <article class="slds-card">
                             <div class="slds-card__header">
-                                <!--<header class="slds-media slds-media_center">-->
-                                    <!--<div class="slds-media__figure">-->
-                                                <!--<span class="slds-icon_container slds-icon-standard-task" title="task">-->
-                                                        <!--{!task.Status__c}-->
-                                                <!--</span>-->
-                                    <!--</div>-->
-                                <!--</header>-->
+                                <header class="slds-media slds-media_center">
+                                    <div class="slds-media__figure">
+                                                <span class="slds-icon_container slds-icon-standard-task" title="task">
+                                                        {!task.Status__c}
+                                                </span>
+                                    </div>
+                                </header>
                             </div>
                             <div class="slds-card__body">
                                 <p id="{!task.Id}" class="slds-text-align_center slds-truncate">{!task.Name}</p>
