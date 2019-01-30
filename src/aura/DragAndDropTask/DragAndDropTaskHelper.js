@@ -79,9 +79,17 @@
 
     changeStatus: function (component, event, helper) {
         var action = component.get("c.updateTaskStatus");
+
+        var params = {
+            recordId: component.get('v.taskId'),
+            status: component.get('v.Status'),
+            comment: component.find("commentField").get("v.value")
+        };
+
+        var record = JSON.stringify(params);
+
         action.setParams({
-            'recordId': component.get('v.taskId'),
-            'status': component.get('v.Status')
+            'record': record
         });
 
         action.setCallback(this, function (response) {

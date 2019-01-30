@@ -11,6 +11,7 @@ public class DragAndDropControllerTest {
         testRecord = new CustomTask__c();
         testRecord.Name = 'Test Task';
         testRecord.Status__c = 'ToDo';
+        testRecord.Comment__C = 'Test comment';
         insert testRecord;
     }
 
@@ -38,11 +39,13 @@ public class DragAndDropControllerTest {
 
     @isTest
     static void updateTaskStatusTest() {
-        CustomTask__c actualRecord = [SELECT Id, Name, Status__c FROM CustomTask__c LIMIT 50];
+        CustomTask__c actualRecord = [SELECT Id, Name, Status__c, Comment__c FROM CustomTask__c LIMIT 1];
+
+        String TEST_CONFIG_METADATA = '{"recordId":"'+actualRecord.Id+'","status":"InProgress","comment":"Enter you comment"}';
         Test.startTest();
-            DragAndDropController.updateTaskStatus(actualRecord.Id, 'InProgress');
+            DragAndDropController.updateTaskStatus(TEST_CONFIG_METADATA);
         Test.stopTest();
-        CustomTask__c expectedRecord = [SELECT Status__c FROM CustomTask__c WHERE Id = :actualRecord.Id LIMIT 1];
+        CustomTask__c expectedRecord = [SELECT Status__c FROM CustomTask__c LIMIT 1];
         System.assertEquals('InProgress', expectedRecord.Status__c, 'Expected  component list should not be empty');
 
     }

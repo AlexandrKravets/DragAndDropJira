@@ -32,11 +32,14 @@ public class DragAndDropController {
 
 
     @AuraEnabled
-    public static void updateTaskStatus(Id recordId, String status) {
-        CustomTask__c record = [SELECT Status__c FROM CustomTask__c WHERE Id = :recordId LIMIT 1];
-        if(record !=null) {
-            record.Status__c = status;
-            update record;
+    public static void updateTaskStatus(String record) {
+
+        CustomTaskDto fields = (CustomTaskDto) JSON.deserialize(record, CustomTaskDto.class);
+        CustomTask__c recordToUpdate = [SELECT Id, Status__c, Comment__c FROM CustomTask__c WHERE Id = :fields.recordId LIMIT 1];
+        if (recordToUpdate != null) {
+            recordToUpdate.Status__c = fields.status;
+            recordToUpdate.Comment__c = fields.comment;
+            update recordToUpdate;
         }
     }
 }

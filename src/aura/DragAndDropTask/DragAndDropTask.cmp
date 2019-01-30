@@ -42,8 +42,8 @@
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                     <lightning:recordEditForm recordId="{!v.taskId}" objectApiName="AlexKravets__CustomTask__c">
                         <lightning:messages/>
-                        <lightning:inputField fieldName="AlexKravets__Comment__c"/>
-                        <lightning:outputField fieldName="AlexKravets__Status__c"/>
+                        <lightning:inputField aura:id="commentField" fieldName="AlexKravets__Comment__c"/>
+                        <lightning:outputField aura:id="statusField" fieldName="AlexKravets__Status__c"/>
                     </lightning:recordEditForm>
                 </div>
 
