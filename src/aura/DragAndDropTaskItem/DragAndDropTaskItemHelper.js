@@ -27,4 +27,9 @@
         });
         window.open('/' + navigateEvent.getParam('recordId'));
     },
+
+    refresh: function (component, event) {
+        console.log('refresh');
+        $A.get('e.force:refreshView').fire();
+    },
 })

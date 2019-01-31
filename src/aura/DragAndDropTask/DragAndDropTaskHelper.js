@@ -62,7 +62,6 @@
         var matchStatuses = component.get('v.matchStatuses');
 
         if (matchStatuses[component.get("v.currentStatus")].includes(event.target.id)) {
-            console.log('match');
             component.set("v.isOpenTaskDetail", true);
         }
         else {
@@ -95,7 +94,7 @@
         action.setCallback(this, function (response) {
 
             if (response) {
-                this.doRefreshView(component, helper);
+                this.doRefreshView(component, event, helper);
             }
         });
 
@@ -103,8 +102,14 @@
         component.set("v.isOpenTaskDetail", false);
     },
 
-    doRefreshView: function (component, helper) {
+    doRefreshView: function (component, event, helper) {
+        // helper.getCustomTasks(component, event);
         $A.get('e.force:refreshView').fire();
+        var childComponent = component.find('customTaskId');
+        childComponent.forEach(function (item) {
+            item.refresh();
+        });
+
     },
 
     resetHighlightsClass: function (component) {
